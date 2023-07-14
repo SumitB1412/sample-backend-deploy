@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
   res.send("Homepage");
 });
 
+app.get("/users",(req,res)=>{
+    res.send("Users")
+})
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
   try {
