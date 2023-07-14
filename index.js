@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
+app.use(express.json())
 const connection = mongoose.connect(process.env.MONGODB_URL);
 
 const userSchema = mongoose.Schema({
