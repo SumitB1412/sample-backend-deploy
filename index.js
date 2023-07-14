@@ -17,9 +17,16 @@ app.get("/", (req, res) => {
   res.send("Homepage");
 });
 
-app.get("/users",(req,res)=>{
-    res.send("Users")
-})
+app.get("/users", async (req, res) => {
+  const users = await UserModel.find();
+  res.send(users);
+});
+
+app.post("/users/add", async (req, res) => {
+  const user = await UserModel(req.body);
+  await user.save();
+  res.send("User saved");
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
